@@ -25,9 +25,10 @@ const MultipleTable = () => {
     if (+event.target.value === 0) {
       setFirstNumber(Math.ceil(Math.random() * 9));
       setSecondNumber(Math.ceil(Math.random() * 9));
+    } else {
+      setFirstNumber(+event.target.value);
+      setSecondNumber(Math.ceil(Math.random() * 9));
     }
-    setFirstNumber(+event.target.value);
-    setSecondNumber(Math.ceil(Math.random() * 9));
   };
 
   const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -71,4 +72,4 @@ const MultipleTable = () => {
 export default MultipleTable;
 
 // select 아직 미비
-// 숫자 0 또는 1 처리 미비
+// 숫자 1 처리 미비

@@ -56,6 +56,7 @@ function App() {
       </Nav>
       <Main>
         <Routes>
+          <Route path="/" element={<Main />} />
           <Route path="/multiplcation-table" element={<MultipleTable />} />
           <Route path="/end-talk" element={<EndTalk />} />
         </Routes>
