@@ -11,22 +11,22 @@ export const secondNumberState = atom({
 });
 
 export const inputValueState = atom({
-  key: "inputValue",
+  key: "inputValueMT",
   default: "",
 });
 
 export const isSubmitState = atom({
-  key: "isSubmit",
+  key: "isSubmitMT",
   default: false,
 });
 
 export const messageState = atom({
-  key: "message",
+  key: "messageMT",
   default: "숫자만 입력하세요",
 });
 
 export const answerSelector = selector({
-  key: "answer",
+  key: "answerMT",
   get: ({ get }) => {
     const firstNumber = get(firstNumberState);
     const secondNumber = get(secondNumberState);

@@ -1,7 +1,41 @@
 import React from "react";
+import { useRecoilState } from "recoil";
+import { inputValueState, messageState, wordState } from "./atoms/atomsET";
 
 const EndTalk = () => {
-  return <span>끝말잇기</span>;
+  const [word, setWord] = useRecoilState(wordState);
+  const [inputValue, setInputValue] = useRecoilState(inputValueState);
+  const [message, setmessage] = useRecoilState(messageState);
+
+  const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (word[word.length - 1] !== inputValue[0]) {
+      setmessage("틀렸습니다!");
+    } else {
+      setmessage("");
+      setWord(inputValue);
+    }
+  };
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  return (
+    <>
+      <div>{word}</div>
+      <form onSubmit={handleSubmitForm}>
+        <input
+          type="text"
+          placeholder="글자를 입력하세요"
+          value={inputValue}
+          onChange={handleChangeInput}
+        />
+        <button type="submit">입력</button>
+        <div>{message}</div>
+      </form>
+    </>
+  );
 };
 
 export default EndTalk;

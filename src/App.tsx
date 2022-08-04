@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import EndTalk from "./routes/EndTalk";
+import Index from "./routes/Index";
 import MultipleTable from "./routes/MultipleTable";
 
 const Nav = styled.nav`
@@ -56,7 +57,7 @@ function App() {
       </Nav>
       <Main>
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Index />} />
           <Route path="/multiplcation-table" element={<MultipleTable />} />
           <Route path="/end-talk" element={<EndTalk />} />
         </Routes>
