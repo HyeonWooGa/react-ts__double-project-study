@@ -10,5 +10,6 @@
 
 - React
 - TypeScript
+- React Router
 - Recoil
 - Styled-Components
