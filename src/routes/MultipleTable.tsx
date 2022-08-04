@@ -36,13 +36,16 @@ const MultipleTable = () => {
     setIsSubmit(true);
     if (!/^[0-9]+$/.test(inputValue)) {
       setMessage("숫자만 입력하세요");
+      setInputValue("");
     } else if (answer !== Number(inputValue)) {
       setMessage("실패...");
+      setInputValue("");
     } else {
       event.preventDefault();
       setFirstNumber(Math.ceil(Math.random() * 9));
       setSecondNumber(Math.ceil(Math.random() * 9));
       setMessage("성공");
+      setInputValue("");
     }
   };
 
