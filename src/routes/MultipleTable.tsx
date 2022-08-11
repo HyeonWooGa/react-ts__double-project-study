@@ -14,6 +14,10 @@ const Container = styled.div`
   height: 70vh;
 `;
 
+const Question = styled.div`
+  margin-bottom: 10px;
+`;
+
 const MultipleTable = () => {
   const [firstNumber, setFirstNumber] = useRecoilState(firstNumberState);
   const [secondNumber, setSecondNumber] = useRecoilState(secondNumberState);
@@ -60,14 +64,16 @@ const MultipleTable = () => {
 
   return (
     <Container>
-      <select onChange={handleChangeSelect}>
-        <option value={0}>랜덤</option>
-        {options}
-      </select>
-      <span>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        {`${firstNumber} 곱하기 ${secondNumber}는?`}
-      </span>
+      <Question>
+        <select onChange={handleChangeSelect}>
+          <option value={0}>랜덤</option>
+          {options}
+        </select>
+        <span>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          {`${firstNumber} 곱하기 ${secondNumber}는?`}
+        </span>
+      </Question>
       <form onSubmit={handleSubmitForm}>
         <input type="text" value={inputValue} onChange={handleChangeInput} />
         <button type="submit">입력</button>

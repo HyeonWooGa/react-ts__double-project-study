@@ -7,6 +7,10 @@ const Container = styled.div`
   height: 70vh;
 `;
 
+const Question = styled.div`
+  margin-bottom: 10px;
+`;
+
 const EndTalk = () => {
   const [word, setWord] = useRecoilState(wordState);
   const [inputValue, setInputValue] = useRecoilState(inputValueState);
@@ -28,7 +32,7 @@ const EndTalk = () => {
 
   return (
     <Container>
-      <div>{word}</div>
+      <Question>{word}</Question>
       <form onSubmit={handleSubmitForm}>
         <input
           type="text"
