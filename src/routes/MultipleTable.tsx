@@ -1,5 +1,6 @@
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
+import styled from "styled-components";
 import {
   answerSelector,
   firstNumberState,
@@ -8,6 +9,10 @@ import {
   messageState,
   secondNumberState,
 } from "./atoms/atomsMT";
+
+const Container = styled.div`
+  height: 70vh;
+`;
 
 const MultipleTable = () => {
   const [firstNumber, setFirstNumber] = useRecoilState(firstNumberState);
@@ -54,7 +59,7 @@ const MultipleTable = () => {
   };
 
   return (
-    <>
+    <Container>
       <select onChange={handleChangeSelect}>
         <option value={0}>랜덤</option>
         {options}
@@ -68,7 +73,7 @@ const MultipleTable = () => {
         <button type="submit">입력</button>
         {isSubmit ? <div>{message}</div> : null}
       </form>
-    </>
+    </Container>
   );
 };
 

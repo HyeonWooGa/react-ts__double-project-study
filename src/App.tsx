@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+
+import Footer from "./components/Footer";
 import EndTalk from "./routes/EndTalk";
 import Index from "./routes/Index";
 import MultipleTable from "./routes/MultipleTable";
@@ -45,7 +47,7 @@ function App() {
     <>
       <Nav>
         <Link to="/">
-          <Title>D.P. - 박연우</Title>
+          <Title>미니게임 모음</Title>
         </Link>
         <Ul>
           <Link to="/multiplcation-table">
@@ -66,6 +68,7 @@ function App() {
           <Route path="/end-talk" element={<EndTalk />} />
           <Route path="/number-baseball" element={<NumberBaseball />} />
         </Routes>
+        <Footer />
       </Main>
     </>
   );

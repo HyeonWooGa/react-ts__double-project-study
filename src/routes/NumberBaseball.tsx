@@ -9,6 +9,15 @@ import {
   strikeState,
 } from "./atoms/atomsNB";
 import Result from "../components/number-baseball/Result";
+import styled from "styled-components";
+
+const Container = styled.div`
+  height: 70vh;
+`;
+
+const Question = styled.div`
+  margin-bottom: 10px;
+`;
 
 const NumberBaseball = () => {
   const [answer, setAnswer] = useRecoilState(answerState);
@@ -20,23 +29,32 @@ const NumberBaseball = () => {
 
   const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setAttempt(attempt + 1);
-    setIsSubmit(true);
-    console.log(answer);
-    console.log(inputValue);
-    console.log(attempt);
-    if (answer === inputValue) {
-      setAnswer("000");
-      setAttempt(0);
-      setBall(0);
-      setStrike(0);
-    } else if (attempt === 10) {
-      alert("횟수가 초과되었습니다.");
-      setAnswer("000");
-      setAttempt(0);
-      setBall(0);
-      setStrike(0);
-      setIsSubmit(false);
+
+    let arr = inputValue.split("");
+    arr = arr.filter((v, i) => arr.indexOf(v) === i);
+
+    if (arr.length !== 3) alert("중복된 숫자는 없습니다.");
+    else {
+      setAttempt(attempt + 1);
+      setIsSubmit(true);
+      // console.log(answer);
+      // console.log(inputValue);
+      // console.log(attempt);
+      if (answer === inputValue) {
+        setAnswer("000");
+        setAttempt(0);
+        setBall(0);
+        setStrike(0);
+        setIsSubmit(false);
+        alert("정답입니다.");
+      } else if (attempt === 10) {
+        alert("횟수가 초과되었습니다.");
+        setAnswer("000");
+        setAttempt(0);
+        setBall(0);
+        setStrike(0);
+        setIsSubmit(false);
+      }
     }
   };
 
@@ -70,12 +88,8 @@ const NumberBaseball = () => {
     setAnswer(arr.join(""));
   }, [answer]);
   return (
-    <>
-      <div>
-        {answer.split("").map((el, index) => {
-          return <span key={index}>{el}</span>;
-        })}
-      </div>
+    <Container>
+      <Question>숫자를 맞추세요 (3자리, 중복 X, 1 - 9)</Question>
       <form onSubmit={handleSubmitForm}>
         <input
           placeholder="숫자를 입력하세요"
@@ -86,7 +100,7 @@ const NumberBaseball = () => {
         <button type="submit">입력</button>
       </form>
       {isSubmit ? <Result /> : <></>}
-    </>
+    </Container>
   );
 };
 

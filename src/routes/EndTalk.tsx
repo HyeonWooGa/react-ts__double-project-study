@@ -1,6 +1,11 @@
 import React from "react";
 import { useRecoilState } from "recoil";
+import styled from "styled-components";
 import { inputValueState, messageState, wordState } from "./atoms/atomsET";
+
+const Container = styled.div`
+  height: 70vh;
+`;
 
 const EndTalk = () => {
   const [word, setWord] = useRecoilState(wordState);
@@ -22,7 +27,7 @@ const EndTalk = () => {
   };
 
   return (
-    <>
+    <Container>
       <div>{word}</div>
       <form onSubmit={handleSubmitForm}>
         <input
@@ -34,7 +39,7 @@ const EndTalk = () => {
         <button type="submit">입력</button>
         <div>{message}</div>
       </form>
-    </>
+    </Container>
   );
 };
 
