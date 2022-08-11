@@ -4,6 +4,7 @@ import styled from "styled-components";
 import EndTalk from "./routes/EndTalk";
 import Index from "./routes/Index";
 import MultipleTable from "./routes/MultipleTable";
+import NumberBaseball from "./routes/NumberBaseball";
 
 const Nav = styled.nav`
   width: 100vw;
@@ -53,6 +54,9 @@ function App() {
           <Link to="/end-talk">
             <Li>끝말잇기</Li>
           </Link>
+          <Link to="/number-baseball">
+            <Li>숫자야구</Li>
+          </Link>
         </Ul>
       </Nav>
       <Main>
@@ -60,6 +64,7 @@ function App() {
           <Route path="/" element={<Index />} />
           <Route path="/multiplcation-table" element={<MultipleTable />} />
           <Route path="/end-talk" element={<EndTalk />} />
+          <Route path="/number-baseball" element={<NumberBaseball />} />
         </Routes>
       </Main>
     </>
